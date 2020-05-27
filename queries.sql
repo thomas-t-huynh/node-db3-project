@@ -16,3 +16,12 @@ ORDER BY p.product_name DESC
 SELECT o.order_id, c.company_name, e.last_name FROM orders AS o
 INNER JOIN customers as c ON o.customer_id = c.customer_id
 INNER JOIN employees as e ON o.employee_id = e.employee_id
+-- stretch-1
+SELECT DISTINCT c.categoryname, COUNT(*) as 'count' FROM categories as c
+INNER JOIN products as p ON c.categoryid = p.categoryid
+INNER JOIN orderDetails as o ON o.productid = p.productid
+GROUP BY c.categoryname
+--stretch-2
+SELECT o.OrderID, COUNT(*) as 'ItemCount' FROM Orders as o
+INNER JOIN OrderDetails as od ON o.OrderID = od.OrderID
+GROUP BY o.OrderID

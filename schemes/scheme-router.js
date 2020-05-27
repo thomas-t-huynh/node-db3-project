@@ -100,7 +100,6 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
-
   Schemes.remove(id)
   .then(deleted => {
     if (deleted) {
